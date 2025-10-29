@@ -32,11 +32,18 @@ class UserRepository implements IUserRepository
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function getUserByUsername($username) {
+        $query = "SELECT * FROM users WHERE username = '$username'";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function addNewUser(array $data): bool
     {
         try {
-            $query = "INSERT INTO users (name, email, password, created_at)
-                    VALUES (:name, :email, :password, NOW())";
+            $query = "INSERT INTO users (username, email, password, created_at)
+                    VALUES (:username, :email, :password, NOW())";
             $stmt = $this->conn->prepare($query);
             $stmt->execute($data);
             return true;
@@ -49,7 +56,7 @@ class UserRepository implements IUserRepository
     public function updateUser($id, array $data) : bool
     {
         try {
-            $query = "UPDATE users SET name = :name, email = :email, password = :password";
+            $query = "UPDATE users SET username = :username, email = :email, password = :password";
             $stmt = $this->conn->prepare($query);
             $stmt->execute($data);
             return true;
