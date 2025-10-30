@@ -14,11 +14,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             header("location: User/panel.php");
         }
         else {
-            echo "An error occurred while adding new user";
+            $_SESSION["error-message"] = "عملیات ثبت نام با مشکل روبرو شد.";
         }
     }
     else {
-        echo "Username already taken";
+        $_SESSION["error-message"] = "نام کاربری وجود دارد!";
     }
 }
 ?>
