@@ -38,6 +38,7 @@ SESSION_START();
         <label for="password">رمز عبور</label>
         <input id="password" type="password"  name="password" required> <br>
         <button type="submit">ورود</button>
+        <p>کاربر جدید هستید: <a href="register.php">اینجا کلیک کنید.</a> </p>
     </form>
 </body>
 </html>
