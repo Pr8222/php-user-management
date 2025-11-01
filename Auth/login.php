@@ -13,7 +13,7 @@ $savedUsername = $_COOKIE["username"] ?? "";
         if(empty($data)){
             $_SESSION['error-message'] = "کاربر یافت نشد!";
         }
-        if($data['password'] == $_POST['password']){
+        if(password_verify($_POST['password'], $data['password'])){
             $_SESSION['username'] = $_POST['username'];
             setcookie("username", $_POST['username'], time() + 3600);
             header("location: ../User/panel.php");
