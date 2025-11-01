@@ -35,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         <input id="username" type="text" name="username" required><br>
         <label for="email">پست الکترونیک</label>
         <input id="email" type="email" name="email" required><br>
-        <label id="password">رمزعبور</label>
+        <label for="password">رمزعبور</label>
         <input id="password" type="password" name="password" required><br>
         <label for="confirm-password">تکرار رمزعبور</label>
         <input id="confirm-password" type="password" required> <br>
