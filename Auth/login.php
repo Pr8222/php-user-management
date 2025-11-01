@@ -3,7 +3,7 @@
 use Repository\UserRepository;
 
 SESSION_START();
-
+$savedUsername = $_COOKIE["username"] ?? "";
     require_once("../Repository/IUserRepository.php");
     require_once("../Repository/UserRepository.php");
 
@@ -34,7 +34,7 @@ SESSION_START();
 <body>
     <form method="post">
         <label for="username">نام کاربری</label>
-        <input id="username" type="text" name="username" required> <br>
+        <input id="username" type="text" name="username" value="<?php echo htmlspecialchars($savedUsername)?>" required> <br>
         <label for="password">رمز عبور</label>
         <input id="password" type="password"  name="password" required> <br>
         <button type="submit">ورود</button>

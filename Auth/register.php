@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $context = new UserRepository();
     if(!$userdata["username"] == $context->getUserByUsername($userdata["username"])){
         if ($context->addNewUser($userdata)) {
-            header("location: User/panel.php");
+            header("location: ../User/panel.php");
         }
         else {
             $_SESSION["error-message"] = "عملیات ثبت نام با مشکل روبرو شد.";
