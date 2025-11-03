@@ -51,7 +51,9 @@ $data = $context->getUserByUsername($_SESSION['username']);
                                 if($key == "id" or $key == "password") {
                                     continue;
                                 }
-                                echo "<tr><th scope='row'>{$key}</th><td>{$value}</td></tr>";
+                                $safeKey = htmlspecialchars($key);
+                                $safeValue = htmlspecialchars((string)$value);
+                                echo "<tr><th scope='row'>{$safeKey}</th><td>{$safeValue}</td></tr>";
                             }
                         } else {
                             echo "<tr><td colspan='2' class='text-center text-muted'>اطلاعاتی یافت نشد.</td></tr>";
