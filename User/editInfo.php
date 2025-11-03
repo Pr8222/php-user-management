@@ -78,16 +78,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <h4 class="mb-0">تغییر اطلاعات</h4>
                 </div>
                 <div class="card-body">
-                    <?php if (!empty($_SESSION['error-message'])): ?>
-                        <div class="alert alert-danger" role="alert">
-                            <?php echo htmlspecialchars($_SESSION['error-message']); ?>
-                        </div>
-                    <?php endif; ?>
-                    <?php if (!empty($_SESSION['success-message'])): ?>
-                        <div class="alert alert-success" role="alert">
-                            <?php echo htmlspecialchars($_SESSION['success-message']); ?>
-                        </div>
-                    <?php endif; ?>
+					<?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_SESSION['error-message'])): ?>
+						<div class="alert alert-danger" role="alert">
+							<?php echo htmlspecialchars($_SESSION['error-message']); ?>
+						</div>
+					<?php endif; ?>
+					<?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_SESSION['success-message'])): ?>
+						<div class="alert alert-success" role="alert">
+							<?php echo htmlspecialchars($_SESSION['success-message']); ?>
+						</div>
+					<?php endif; ?>
                     <form method="post" action="editInfo.php" class="row g-3">
                         <div class="col-md-6">
                             <label for="username" class="form-label">نام کاربری</label>
