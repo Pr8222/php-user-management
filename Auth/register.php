@@ -54,11 +54,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                         <form method="post" class="row g-3">
                             <div class="col-12">
                                 <label for="username" class="form-label">نام کاربری</label>
-                                <input id="username" type="text" name="username" class="form-control" required>
+                                <input id="username" type="text" name="username" class="form-control" value="<?php echo isset($_POST['username']) ? htmlspecialchars($_POST['username']) : '' ?>" required>
                             </div>
                             <div class="col-12">
                                 <label for="email" class="form-label">پست الکترونیک</label>
-                                <input id="email" type="email" name="email" class="form-control" required>
+                                <input id="email" type="email" name="email" class="form-control" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>" required>
                             </div>
                             <div class="col-12">
                                 <label for="password" class="form-label">رمز عبور</label>
