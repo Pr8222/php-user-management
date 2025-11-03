@@ -56,10 +56,13 @@ class UserRepository implements IUserRepository
     public function updateUser($id, array $data) : bool
     {
         try {
-            $query = "UPDATE users SET username = :username, email = :email, password = :password";
+            $query = "UPDATE users SET username = :username, email = :email, password = :password WHERE id = :id";
             $stmt = $this->conn->prepare($query);
-            $stmt->execute($data);
-            return true;
+            $stmt->bindValue(':username', $data['username']);
+            $stmt->bindValue(':email', $data['email']);
+            $stmt->bindValue(':password', $data['password']);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            return $stmt->execute();
         }
         catch (PDOException $e){
             return false;
